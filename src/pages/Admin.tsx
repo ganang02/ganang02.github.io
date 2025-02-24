@@ -18,7 +18,8 @@ const Admin = () => {
     day: 'Senin' as DayOfWeek,
     dueDate: '',
     dueTime: '',
-    imageUrl: ''
+    imageUrl: '',
+    driveUrl: ''  // Menambahkan field untuk Google Drive URL
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -30,7 +31,8 @@ const Admin = () => {
       day: 'Senin',
       dueDate: '',
       dueTime: '',
-      imageUrl: ''
+      imageUrl: '',
+      driveUrl: ''
     });
     toast({
       description: "Tugas berhasil ditambahkan",
@@ -95,6 +97,18 @@ const Admin = () => {
                 onChange={(e) => setNewTask({ ...newTask, imageUrl: e.target.value })}
                 className="w-full p-2 border rounded-lg"
                 placeholder="https://example.com/image.jpg"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-textSecondary mb-1">
+                Link Google Drive Jawaban (opsional)
+              </label>
+              <input
+                type="url"
+                value={newTask.driveUrl}
+                onChange={(e) => setNewTask({ ...newTask, driveUrl: e.target.value })}
+                className="w-full p-2 border rounded-lg"
+                placeholder="https://drive.google.com/..."
               />
             </div>
             <div>

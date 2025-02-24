@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Task } from '@/types/task';
-import { Check, Clock, BookOpen, Download, Lock } from 'lucide-react';
+import { Check, Clock, BookOpen, Download, Lock, Link } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 
 interface TaskCardProps {
@@ -52,16 +52,18 @@ export function TaskCard({ task, onToggleComplete }: TaskCardProps) {
           </div>
           <h3 className="text-base font-medium text-textPrimary mb-3">{task.title}</h3>
           <div className="flex items-center justify-between">
-            {task.imageUrl && (
-              <a 
-                href={task.imageUrl}
-                download
-                className="inline-flex items-center text-xs text-primary hover:text-primary/80 transition-colors"
-              >
-                <Download className="w-3 h-3 mr-1" />
-                Unduh gambar
-              </a>
-            )}
+            <div className="flex items-center gap-2">
+              {task.imageUrl && (
+                <a 
+                  href={task.imageUrl}
+                  download
+                  className="inline-flex items-center text-xs text-primary hover:text-primary/80 transition-colors"
+                >
+                  <Download className="w-3 h-3 mr-1" />
+                  Unduh gambar
+                </a>
+              )}
+            </div>
             <button
               onClick={handleToggleComplete}
               className={`flex items-center gap-1 px-3 py-1.5 rounded-full transition-all
@@ -85,6 +87,20 @@ export function TaskCard({ task, onToggleComplete }: TaskCardProps) {
               )}
             </button>
           </div>
+          {task.driveUrl && (
+            <div className="mt-4 pt-4 border-t border-slate-200">
+              <h4 className="text-sm font-medium text-textSecondary mb-2">Jawaban Foto Tugas</h4>
+              <a 
+                href={task.driveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-sm text-primary hover:text-primary/80 transition-colors"
+              >
+                <Link className="w-4 h-4 mr-1" />
+                Lihat di Google Drive
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </div>

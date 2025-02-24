@@ -8,6 +8,7 @@ export interface Task {
   dueTime: string;
   isCompleted: boolean;
   imageUrl?: string;
+  driveUrl?: string;  // Menambahkan field untuk link Google Drive
 }
 
 export type DayOfWeek = 'Senin' | 'Selasa' | 'Rabu' | 'Kamis' | 'Jumat';

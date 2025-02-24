@@ -1,16 +1,19 @@
-
 import React, { useState } from 'react';
 import { Task, DayOfWeek } from '@/types/task';
 import { useTaskContext } from '@/contexts/TaskContext';
 import { Link } from 'react-router-dom';
 import { Plus, ArrowLeft, Pencil, Trash } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
+import { useAuth } from '@/contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const days: DayOfWeek[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
 const Admin = () => {
   const { tasks, addTask, updateTask, deleteTask } = useTaskContext();
   const { toast } = useToast();
+  const { logout } = useAuth();
+  const navigate = useNavigate();
   const [editingTask, setEditingTask] = useState<Task | null>(null);
   const [formData, setFormData] = useState({
     title: '',
@@ -47,14 +50,25 @@ const Admin = () => {
     });
   };
 
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-4xl mx-auto">
-        <div className="flex items-center mb-8">
+        <div className="flex items-center justify-between mb-8">
           <Link to="/" className="flex items-center text-primary hover:text-primary-hover">
             <ArrowLeft className="w-5 h-5 mr-2" />
             Back to Tasks
           </Link>
+          <button
+            onClick={handleLogout}
+            className="px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+          >
+            Logout
+          </button>
         </div>
         
         <div className="bg-white rounded-lg shadow-sm p-6 mb-8">

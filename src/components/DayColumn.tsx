@@ -1,8 +1,9 @@
 
 import React from 'react';
-import { Task, DayOfWeek } from '@/types/task';
+import { DayOfWeek } from '@/types/task';
 import { TaskCard } from './TaskCard';
 import { useTaskContext } from '@/contexts/TaskContext';
+import { Calendar } from 'lucide-react';
 
 interface DayColumnProps {
   day: DayOfWeek;
@@ -13,8 +14,11 @@ export function DayColumn({ day }: DayColumnProps) {
   const dayTasks = tasks.filter(task => task.day === day);
 
   return (
-    <div className="w-full p-4 bg-white rounded-lg shadow-sm">
-      <h2 className="text-xl font-semibold text-textPrimary mb-4">{day}</h2>
+    <div className="w-full p-6 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20">
+      <div className="flex items-center gap-2 mb-6">
+        <Calendar className="w-5 h-5 text-primary" />
+        <h2 className="text-xl font-bold text-textPrimary">{day}</h2>
+      </div>
       <div className="space-y-4">
         {dayTasks.map(task => (
           <TaskCard
@@ -24,7 +28,9 @@ export function DayColumn({ day }: DayColumnProps) {
           />
         ))}
         {dayTasks.length === 0 && (
-          <p className="text-textSecondary text-center py-4">No tasks for {day}</p>
+          <div className="text-center py-8 text-textSecondary/60">
+            <p className="text-sm">No tasks for {day}</p>
+          </div>
         )}
       </div>
     </div>

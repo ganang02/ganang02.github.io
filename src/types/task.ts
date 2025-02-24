@@ -6,6 +6,8 @@ export interface Task {
   day: DayOfWeek;
   dueTime: string;
   isCompleted: boolean;
+  imageUrl?: string;
 }
 
 export type DayOfWeek = 'Senin' | 'Selasa' | 'Rabu' | 'Kamis' | 'Jumat';
+

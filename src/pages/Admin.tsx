@@ -16,7 +16,8 @@ const Admin = () => {
     title: '',
     subject: '',
     day: 'Senin' as DayOfWeek,
-    dueTime: ''
+    dueTime: '',
+    imageUrl: ''
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -26,7 +27,8 @@ const Admin = () => {
       title: '',
       subject: '',
       day: 'Senin',
-      dueTime: ''
+      dueTime: '',
+      imageUrl: ''
     });
     toast({
       description: "Tugas berhasil ditambahkan",
@@ -79,6 +81,18 @@ const Admin = () => {
                 onChange={(e) => setNewTask({ ...newTask, subject: e.target.value })}
                 className="w-full p-2 border rounded-lg"
                 required
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-textSecondary mb-1">
+                URL Gambar (opsional)
+              </label>
+              <input
+                type="url"
+                value={newTask.imageUrl}
+                onChange={(e) => setNewTask({ ...newTask, imageUrl: e.target.value })}
+                className="w-full p-2 border rounded-lg"
+                placeholder="https://example.com/image.jpg"
               />
             </div>
             <div>

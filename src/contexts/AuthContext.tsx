@@ -7,8 +7,8 @@ interface AuthContextType {
   logout: () => void;
 }
 
-const ADMIN_USERNAME = 'admin';
-const ADMIN_PASSWORD = 'admin123';
+const ADMIN_USERNAME = 'sepuluhsatuu';
+const ADMIN_PASSWORD = 'sepuluhsatuu';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 

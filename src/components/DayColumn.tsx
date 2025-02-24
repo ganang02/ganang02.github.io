@@ -14,10 +14,15 @@ export function DayColumn({ day }: DayColumnProps) {
   const dayTasks = tasks.filter(task => task.day === day);
 
   return (
-    <div className="w-full p-6 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20">
-      <div className="flex items-center gap-2 mb-6">
-        <Calendar className="w-5 h-5 text-primary" />
-        <h2 className="text-xl font-bold text-textPrimary">{day}</h2>
+    <div className="w-full p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl 
+      transition-all duration-300 border border-white/20 group hover:-translate-y-1">
+      <div className="flex items-center gap-3 mb-6">
+        <div className="p-2 rounded-xl bg-primary/10 text-primary">
+          <Calendar className="w-5 h-5" />
+        </div>
+        <h2 className="text-xl font-bold text-textPrimary group-hover:text-primary transition-colors">
+          {day}
+        </h2>
       </div>
       <div className="space-y-4">
         {dayTasks.map(task => (

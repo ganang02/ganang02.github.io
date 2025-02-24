@@ -15,7 +15,20 @@ const TaskContext = createContext<TaskContextType | undefined>(undefined);
 export function TaskProvider({ children }: { children: React.ReactNode }) {
   const [tasks, setTasks] = useState<Task[]>(() => {
     const savedTasks = localStorage.getItem('tasks');
-    return savedTasks ? JSON.parse(savedTasks) : [];
+    if (savedTasks) {
+      try {
+        const parsedTasks = JSON.parse(savedTasks);
+        // Add dueDate field to existing tasks if it doesn't exist
+        return parsedTasks.map((task: Task) => ({
+          ...task,
+          dueDate: task.dueDate || ''
+        }));
+      } catch (error) {
+        console.error('Error parsing tasks from localStorage:', error);
+        return [];
+      }
+    }
+    return [];
   });
 
   useEffect(() => {

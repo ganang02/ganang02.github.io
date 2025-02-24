@@ -16,6 +16,7 @@ const Admin = () => {
     title: '',
     subject: '',
     day: 'Senin' as DayOfWeek,
+    dueDate: '',
     dueTime: '',
     imageUrl: ''
   });
@@ -27,6 +28,7 @@ const Admin = () => {
       title: '',
       subject: '',
       day: 'Senin',
+      dueDate: '',
       dueTime: '',
       imageUrl: ''
     });
@@ -111,6 +113,18 @@ const Admin = () => {
                 <option value="Kamis">Kamis</option>
                 <option value="Jumat">Jumat</option>
               </select>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-textSecondary mb-1">
+                Tanggal Pengumpulan
+              </label>
+              <input
+                type="date"
+                value={newTask.dueDate}
+                onChange={(e) => setNewTask({ ...newTask, dueDate: e.target.value })}
+                className="w-full p-2 border rounded-lg"
+                required
+              />
             </div>
             <div>
               <label className="block text-sm font-medium text-textSecondary mb-1">

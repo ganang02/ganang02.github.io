@@ -45,7 +45,9 @@ export function TaskCard({ task, onToggleComplete }: TaskCardProps) {
             </div>
             <div className="flex items-center space-x-2 bg-white/80 px-3 py-1.5 rounded-full shadow-sm">
               <Clock className="w-4 h-4 text-primary" />
-              <span className="text-sm font-semibold text-primary">{task.dueTime}</span>
+              <span className="text-sm font-semibold text-primary">
+                {task.dueDate && task.dueTime ? `${task.dueDate}, ${task.dueTime}` : task.dueTime}
+              </span>
             </div>
           </div>
           <h3 className="text-base font-medium text-textPrimary mb-3">{task.title}</h3>

@@ -31,7 +31,7 @@ export function TaskCard({ task, onToggleComplete }: TaskCardProps) {
       {task.isCompleted && (
         <div className="flex items-center text-green-600 bg-green-50 px-2 py-1 rounded-full w-fit">
           <Check className="w-3 h-3 mr-1" />
-          <span className="text-xs">Completed</span>
+          <span className="text-xs">Selesai</span>
         </div>
       )}
     </div>

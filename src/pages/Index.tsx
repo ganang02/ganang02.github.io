@@ -3,7 +3,7 @@ import React from 'react';
 import { DayColumn } from '@/components/DayColumn';
 import { DayOfWeek } from '@/types/task';
 
-const days: DayOfWeek[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+const days: DayOfWeek[] = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat'];
 
 const Index = () => {
   return (
@@ -11,7 +11,7 @@ const Index = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-4xl font-bold text-textPrimary bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600">
-            School Tasks
+            Tugas Sekolah
           </h1>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 animate-fadeIn">

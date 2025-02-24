@@ -29,7 +29,7 @@ export function DayColumn({ day }: DayColumnProps) {
         ))}
         {dayTasks.length === 0 && (
           <div className="text-center py-8 text-textSecondary/60">
-            <p className="text-sm">No tasks for {day}</p>
+            <p className="text-sm">Tidak ada tugas untuk hari {day}</p>
           </div>
         )}
       </div>

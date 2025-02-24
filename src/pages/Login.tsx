@@ -17,17 +17,17 @@ const Login = () => {
       navigate('/admin');
     } else {
       toast({
-        description: 'Invalid username or password',
+        description: 'Username atau password salah',
         variant: 'destructive',
       });
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-br from-violet-50 to-indigo-100 flex items-center justify-center p-6">
       <div className="w-full max-w-md">
-        <div className="bg-white rounded-lg shadow-sm p-8">
-          <h2 className="text-2xl font-bold text-textPrimary mb-6 text-center">Admin Login</h2>
+        <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-lg p-8">
+          <h2 className="text-2xl font-bold text-textPrimary mb-6 text-center">Login Admin</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-textSecondary mb-1">
@@ -55,9 +55,9 @@ const Login = () => {
             </div>
             <button
               type="submit"
-              className="w-full py-2 bg-primary text-white rounded-lg hover:bg-primary-hover transition-colors"
+              className="w-full py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
             >
-              Login
+              Masuk
             </button>
           </form>
         </div>
